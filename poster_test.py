@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "cc832b17654beeb62e0356a132e8c424"
+API_KEY = "4749b5af1a6dd90be4e054dc4be6e362"
 
 movie_name = "Avatar"
 

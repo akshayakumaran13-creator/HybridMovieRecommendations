@@ -1,108 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>{{ movie.title }}</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <!-- BACK BUTTON -->
-    <div class="top-bar">
-        <a href="/" class="home-btn">
-            🏠 Back to Home
-        </a>
+<!-- BACK BUTTON (FIXED) -->
+<div class="top-bar">
+    <a href="/" class="home-btn">⬅ Back Home</a>
+</div>
+
+<!-- MOVIE HERO -->
+<div class="movie-hero">
+
+    <div class="bg-blur"
+         style="background-image:url('https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}');">
     </div>
 
-    <!-- CINEMATIC MOVIE HERO -->
-    <div class="movie-hero">
+    <div class="overlay"></div>
 
-        <!-- BLURRED BACKGROUND -->
-        <div class="bg-blur"
-             style="background-image:
-             url('https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}');">
+    <div class="movie-content">
+
+        <div class="poster-box">
+            {% if movie.poster_path %}
+            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
+            {% endif %}
         </div>
 
-        <!-- DARK OVERLAY -->
-        <div class="overlay"></div>
+        <div class="info-box">
 
-        <!-- CONTENT -->
-        <div class="movie-content">
+            <h1>{{ movie.title }}</h1>
 
-            <!-- POSTER -->
-            <div class="poster-box">
+            {% if movie.vote_average %}
+            <p>⭐ Rating: {{ movie.vote_average }}</p>
+            {% endif %}
 
-                <img
-                    src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
-                    alt="{{ movie.title }}">
+            {% if movie.release_date %}
+            <p>📅 Release: {{ movie.release_date }}</p>
+            {% endif %}
 
-            </div>
-
-            <!-- INFO -->
-            <div class="info-box">
-
-                <h1>{{ movie.title }}</h1>
-
-                <p>⭐ Rating: {{ movie.vote_average }}</p>
-                <p>📅 Release: {{ movie.release_date }}</p>
-
-                {% if movie.original_language %}
-                <p>🌎 Language: {{ movie.original_language|upper }}</p>
-                {% endif %}
-
-                <p class="overview">
-                    {{ movie.overview }}
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- RECOMMENDATIONS -->
-    <div class="recommendations">
-
-        <h2>🎬 Recommended Movies</h2>
-
-        {% if recommendations %}
-
-        <div class="movie-grid">
-
-            {% for rec in recommendations %}
-
-            <a href="/movie/{{ rec.id }}" class="movie-card">
-
-                {% if rec.poster_path %}
-
-                <img src="https://image.tmdb.org/t/p/w500{{ rec.poster_path }}">
-
-                {% endif %}
-
-                <h3>{{ rec.title }}</h3>
-
-            </a>
-
+            {% if genres %}
+            <p>🎭 Genres:</p>
+            {% for g in genres %}
+                <span class="genre-tag">{{ g }}</span>
             {% endfor %}
+            {% endif %}
+
+            {% if movie.overview %}
+            <p class="overview">{{ movie.overview }}</p>
+            {% endif %}
 
         </div>
 
-        {% else %}
+    </div>
+</div>
 
-        <p>No recommendations found.</p>
+<!-- RECOMMENDATIONS -->
+<div class="recommendations">
 
-        {% endif %}
+    <h2>🎬 Recommended Movies</h2>
+
+    <div class="movie-grid">
+
+        {% for rec in recommendations %}
+
+        <a href="/movie/{{ rec.id }}" class="movie-card">
+
+            {% if rec.poster_path %}
+            <img src="https://image.tmdb.org/t/p/w500{{ rec.poster_path }}">
+            {% endif %}
+
+            <h3>{{ rec.title }}</h3>
+
+        </a>
+
+        {% endfor %}
 
     </div>
+
+</div>
 
 </body>
-
 </html>
