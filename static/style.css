@@ -1,0 +1,323 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* BACKGROUND THEME */
+body{
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        #2d1b69 0%,
+        #1b1b3a 30%,
+        #0f172a 60%,
+        #050505 100%
+    );
+
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    padding:25px 50px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:800;
+
+    background:
+    linear-gradient(90deg,#ff416c,#ff4b2b);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* HERO (optional homepage) */
+.hero{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:78px;
+    font-weight:800;
+    max-width:1000px;
+
+    background:linear-gradient(90deg,#fff,#c084fc,#60a5fa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:750px;
+    font-size:22px;
+    color:#d1d5db;
+    margin-bottom:40px;
+    line-height:1.7;
+}
+
+/* SEARCH */
+.search-box{
+    width:550px;
+    max-width:90vw;
+    padding:18px 25px;
+
+    border:none;
+    border-radius:50px;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    color:white;
+    font-size:18px;
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.search-btn{
+    padding:18px 35px;
+    border:none;
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
+
+    font-size:18px;
+    font-weight:600;
+
+    cursor:pointer;
+    margin-left:10px;
+
+    transition:.3s;
+}
+
+.search-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(255,65,108,.4);
+}
+
+/* FEATURES */
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:60px 30px;
+}
+
+.feature-card{
+    width:320px;
+    padding:35px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+}
+
+/* TOP BAR */
+.top-bar{
+    padding:25px 40px;
+}
+
+/* HOME BUTTON */
+.home-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+    color:white;
+
+    padding:14px 28px;
+    border-radius:40px;
+
+    background:linear-gradient(135deg,#7c3aed,#2563eb);
+
+    font-weight:600;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(124,58,237,.35);
+}
+
+.home-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* =========================
+   CINEMATIC MOVIE HERO
+   ========================= */
+
+.movie-hero{
+    position:relative;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+/* BLURRED BACKGROUND */
+.bg-blur{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(25px) brightness(0.5);
+    transform:scale(1.2);
+}
+
+/* DARK OVERLAY */
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.6);
+}
+
+/* CONTENT */
+.movie-content{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    gap:50px;
+
+    max-width:1200px;
+    width:100%;
+
+    padding:60px;
+    align-items:center;
+}
+
+/* POSTER */
+.poster-box img{
+    width:320px;
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,0.8);
+}
+
+/* INFO */
+.info-box{
+    flex:1;
+}
+
+.info-box h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.info-box p{
+    margin-bottom:15px;
+    line-height:1.8;
+    color:#e5e7eb;
+}
+
+.overview{
+    margin-top:20px;
+    color:#cbd5e1;
+}
+
+/* RECOMMENDATIONS */
+.recommendations{
+    padding:40px;
+}
+
+.recommendations h2{
+    margin-bottom:25px;
+    font-size:32px;
+}
+
+.movie-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:25px;
+}
+
+/* MOVIE CARD */
+.movie-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+
+    overflow:hidden;
+    text-decoration:none;
+    color:white;
+
+    transition:.3s;
+
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.movie-card:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:0 20px 40px rgba(96,165,250,.2);
+}
+
+.movie-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+}
+
+.movie-card h3{
+    padding:15px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .movie-content{
+        flex-direction:column;
+        text-align:center;
+        padding:30px;
+    }
+
+    .poster-box img{
+        width:90%;
+        max-width:350px;
+    }
+
+    .info-box h1{
+        font-size:40px;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+}

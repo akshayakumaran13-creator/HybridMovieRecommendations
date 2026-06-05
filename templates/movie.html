@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ movie.title }}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- BACK BUTTON -->
+    <div class="top-bar">
+        <a href="/" class="home-btn">
+            🏠 Back to Home
+        </a>
+    </div>
+
+    <!-- CINEMATIC MOVIE HERO -->
+    <div class="movie-hero">
+
+        <!-- BLURRED BACKGROUND -->
+        <div class="bg-blur"
+             style="background-image:
+             url('https://image.tmdb.org/t/p/original{{ movie.backdrop_path }}');">
+        </div>
+
+        <!-- DARK OVERLAY -->
+        <div class="overlay"></div>
+
+        <!-- CONTENT -->
+        <div class="movie-content">
+
+            <!-- POSTER -->
+            <div class="poster-box">
+
+                <img
+                    src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+                    alt="{{ movie.title }}">
+
+            </div>
+
+            <!-- INFO -->
+            <div class="info-box">
+
+                <h1>{{ movie.title }}</h1>
+
+                <p>⭐ Rating: {{ movie.vote_average }}</p>
+                <p>📅 Release: {{ movie.release_date }}</p>
+
+                {% if movie.original_language %}
+                <p>🌎 Language: {{ movie.original_language|upper }}</p>
+                {% endif %}
+
+                <p class="overview">
+                    {{ movie.overview }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div class="recommendations">
+
+        <h2>🎬 Recommended Movies</h2>
+
+        {% if recommendations %}
+
+        <div class="movie-grid">
+
+            {% for rec in recommendations %}
+
+            <a href="/movie/{{ rec.id }}" class="movie-card">
+
+                {% if rec.poster_path %}
+
+                <img src="https://image.tmdb.org/t/p/w500{{ rec.poster_path }}">
+
+                {% endif %}
+
+                <h3>{{ rec.title }}</h3>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>No recommendations found.</p>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

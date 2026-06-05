@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>MovieAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        MovieAI
+    </div>
+
+</div>
+
+<div class="hero">
+
+    <h1>
+        Unlimited Movies, Endless Discovery
+    </h1>
+
+    <p>
+        Search, explore and discover movies from around the world.
+    </p>
+
+    <form action="/search" method="POST">
+
+        <input
+            type="text"
+            name="movie"
+            class="search-box"
+            placeholder="Search for a movie...">
+
+        <button
+            type="submit"
+            class="search-btn">
+
+            Search
+
+        </button>
+
+    </form>
+
+</div>
+
+<div class="features">
+
+    <div class="feature-card">
+
+        <div class="emoji">🎬</div>
+
+        <h3>Movie Discovery</h3>
+
+        <p>
+            Search thousands of movies instantly.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="emoji">⭐</div>
+
+        <h3>Smart Recommendations</h3>
+
+        <p>
+            Find movies similar to your favorites.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="emoji">🌍</div>
+
+        <h3>Global Cinema</h3>
+
+        <p>
+            Explore movies from all around the world.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
