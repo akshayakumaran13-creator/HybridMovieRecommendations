@@ -120,7 +120,7 @@ def logout():
     session.clear()
     return redirect("/login")
 
-# ---------------- MAIN ROUTES ----------------
+# ---------------- MAIN ROUTES -------------
 @app.route("/")
 @login_required
 def home():
