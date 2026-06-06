@@ -3,6 +3,15 @@ gunicorn
 pandas
 numpy
 scikit-learn
+scikit-surprise
 requests
 fuzzywuzzy
 python-Levenshtein
+flask-login
+flask-sqlalchemy
+werkzeug
+SQLAlchemy
+python-dotenv
+jinja2
+itsdangerous
+click

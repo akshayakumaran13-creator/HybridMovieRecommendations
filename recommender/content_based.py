@@ -1,55 +1,38 @@
 import pandas as pd
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from difflib import get_close_matches
 
 movies = pd.read_csv("movies.csv")
-
 movies["genres"] = movies["genres"].fillna("")
 
 tfidf = TfidfVectorizer(stop_words="english")
+tfidf_matrix = tfidf.fit_transform(movies["genres"])
+cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
-tfidf_matrix = tfidf.fit_transform(
-    movies["genres"]
-)
+indices = pd.Series(movies.index, index=movies["title"].str.lower()).drop_duplicates()
 
-cosine_sim = cosine_similarity(
-    tfidf_matrix,
-    tfidf_matrix
-)
+def recommend_movies(movie_title, top_n=20):
+    query = movie_title.strip().lower()
+    if query in indices:
+        idx = indices[query]
+    else:
+        titles = movies["title"].dropna().str.lower().tolist()
+        match = get_close_matches(query, titles, n=1, cutoff=0.4)
+        if not match:
+            return []
+        idx = indices[match[0]]
 
-def recommend_movies(movie_title):
-
-    movie_title = movie_title.lower()
-
-    matches = movies[
-        movies["title"].str.lower().str.contains(
-            movie_title,
-            na=False
-        )
-    ]
-
-    if matches.empty:
-        return []
-
-    idx = matches.index[0]
-
-    similarity_scores = list(
-        enumerate(cosine_sim[idx])
-    )
-
-    similarity_scores = sorted(
-        similarity_scores,
-        key=lambda x: x[1],
-        reverse=True
-    )
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
     recommendations = []
-
-    for movie in similarity_scores[1:11]:
-
-        recommendations.append(
-            movies.iloc[movie[0]]["title"]
-        )
-
+    for i, score in sim_scores[1:top_n+1]:
+        rec = movies.iloc[i]
+        recommendations.append({
+            "movieId": rec["movieId"],
+            "title": rec["title"],
+            "genres": rec["genres"]
+        })
     return recommendations
+
