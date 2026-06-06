@@ -143,7 +143,7 @@ def search():
     )
 
 
-# ----------------------------
+# ------------------------
 # MOVIE PAGE (CLICK NAVIGATION)
 # ----------------------------
 @app.route("/movie/<int:movie_id>")
