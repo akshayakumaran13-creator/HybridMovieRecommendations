@@ -5,7 +5,9 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* BACKGROUND */
+/* =========================
+   BACKGROUND GALAXY
+========================= */
 body {
     min-height: 100vh;
     background: radial-gradient(circle at top left,
@@ -14,11 +16,28 @@ body {
         #0f172a 65%,
         #050505 100%);
     color: white;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* Starfield overlay */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.1; /* softer stars */
+    pointer-events: none;
+}
+
+/* =========================
+   NAVBAR + TOP BAR
+========================= */
 .navbar {
     padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -29,7 +48,31 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* HERO */
+.top-bar {
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.home-btn, .logout-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.home-btn:hover, .logout-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
     min-height: 80vh;
     display: flex;
@@ -41,12 +84,13 @@ body {
 }
 
 .hero h1 {
-    font-size: 72px;
+    font-size: clamp(42px, 8vw, 72px);
     max-width: 1000px;
     background: linear-gradient(90deg, #fff, #c084fc, #60a5fa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.5); /* softer glow */
 }
 
 .hero p {
@@ -56,7 +100,9 @@ body {
     margin-bottom: 40px;
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH BAR
+========================= */
 .search-box {
     width: 500px;
     max-width: 90vw;
@@ -66,6 +112,7 @@ body {
     background: rgba(255,255,255,0.08);
     color: white;
     outline: none;
+    box-shadow: 0 0 8px rgba(124, 58, 237, 0.4); /* toned down */
 }
 
 .search-btn {
@@ -76,9 +123,17 @@ body {
     color: white;
     cursor: pointer;
     margin-left: 10px;
+    transition: all 0.3s ease;
 }
 
-/* FEATURES */
+.search-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+}
+
+/* =========================
+   FEATURES
+========================= */
 .features {
     display: flex;
     justify-content: center;
@@ -93,28 +148,12 @@ body {
     background: rgba(255,255,255,0.05);
     border-radius: 20px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
 }
 
-/* BACK BUTTON */
-.top-bar {
-    padding: 20px;
-}
-
-.home-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #7c3aed, #2563eb);
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.home-btn:hover {
-    transform: translateY(-3px);
-}
-
-/* MOVIE HERO */
+/* =========================
+   MOVIE HERO
+========================= */
 .movie-hero {
     position: relative;
     min-height: 90vh;
@@ -123,7 +162,6 @@ body {
     align-items: center;
 }
 
-/* BACKDROP BLUR */
 .bg-blur {
     position: absolute;
     inset: 0;
@@ -133,14 +171,12 @@ body {
     transform: scale(1.2);
 }
 
-/* OVERLAY */
 .overlay {
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.65);
 }
 
-/* CONTENT */
 .movie-content {
     position: relative;
     z-index: 2;
@@ -152,13 +188,12 @@ body {
     align-items: center;
 }
 
-/* POSTER */
 .poster-box img {
     width: 300px;
     border-radius: 15px;
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.5); /* softer */
 }
 
-/* INFO */
 .info-box {
     flex: 1;
     min-width: 280px;
@@ -167,6 +202,7 @@ body {
 .info-box h1 {
     font-size: 50px;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 60, 0, 0.6);
 }
 
 .info-box p {
@@ -174,17 +210,22 @@ body {
     color: #e5e7eb;
 }
 
-/* GENRES */
+/* =========================
+   GENRES
+========================= */
 .genre-tag {
     display: inline-block;
     padding: 6px 12px;
     margin: 5px;
     border-radius: 20px;
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    background: linear-gradient(135deg, #ff416c, #ff4b2b, #c084fc);
     font-size: 12px;
+    box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
 }
 
-/* RECOMMENDATIONS */
+/* =========================
+   RECOMMENDATIONS GRID
+========================= */
 .recommendations {
     padding: 40px;
 }
@@ -199,7 +240,6 @@ body {
     gap: 20px;
 }
 
-/* MOVIE CARD */
 .movie-card {
     text-decoration: none;
     color: white;
@@ -207,10 +247,12 @@ body {
     border-radius: 15px;
     overflow: hidden;
     transition: 0.3s;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
 }
 
 .movie-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
 }
 
 .movie-card img {
@@ -224,12 +266,110 @@ body {
     font-size: 14px;
 }
 
-/* MOBILE */
-@media(max-width:768px) {
-    .hero h1 { font-size: 45px; }
-    .movie-content { flex-direction: column; text-align: center; }
+/* =========================
+   AUTH FORMS (Login, Signup, Forgot Password)
+========================= */
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.top-bar {
-    position: relative;
-    z-index: 10;
+
+.auth-card {
+    width: 500px;
+    max-width: 90%;
+    padding: 40px;
+    background: rgba(20,20,40,0.85);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(150, 0, 255, 0.4);
+}
+
+.auth-card h1 {
+    margin-bottom: 20px;
+    font-size: 42px;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255, 60, 0, 0.6);
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #1a1a2e;
+    color: #fff;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.auth-card input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 60, 0, 0.7);
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b, #c084fc);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 0, 128, 0.5); /* softer glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.7); /* hover glow */
+}
+/* =========================
+   AUTH BACK BUTTON
+========================= */
+.back-link {
+    margin-top: 15px;
+}
+
+.back-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+.back-link a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.8);
+}
+
+/* =========================
+   AUTH INPUTS RESET
+========================= */
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #1a1a2e;
+    color: #fff;
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Ensure inputs always start empty */
+.auth-card input[value] {
+    value: "";
 }

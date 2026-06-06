@@ -8,7 +8,7 @@
 
 <body>
 
-<!-- BACK BUTTON (FIXED) -->
+<!-- BACK BUTTON -->
 <div class="top-bar">
     <a href="/" class="home-btn">⬅ Back Home</a>
 </div>
@@ -25,9 +25,11 @@
     <div class="movie-content">
 
         <div class="poster-box">
+
             {% if movie.poster_path %}
             <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
             {% endif %}
+
         </div>
 
         <div class="info-box">
@@ -67,15 +69,19 @@
 
         {% for rec in recommendations %}
 
-        <a href="/movie/{{ rec.id }}" class="movie-card">
+            {% if rec.get('id') %}
 
-            {% if rec.poster_path %}
-            <img src="https://image.tmdb.org/t/p/w500{{ rec.poster_path }}">
+                <a href="/movie/{{ rec['id'] }}" class="movie-card">
+
+                    {% if rec.get('poster_path') %}
+                    <img src="https://image.tmdb.org/t/p/w500{{ rec['poster_path'] }}">
+                    {% endif %}
+
+                    <h3>{{ rec.get('title', 'Untitled') }}</h3>
+
+                </a>
+
             {% endif %}
-
-            <h3>{{ rec.title }}</h3>
-
-        </a>
 
         {% endfor %}
 

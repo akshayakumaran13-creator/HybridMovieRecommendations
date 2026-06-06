@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MovieAI Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Prevent browser caching of form data -->
+    <meta http-equiv="Cache-Control" content="no-store" />
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">MovieAI</div>
+</div>
+
+<div class="hero">
+
+    <h1>Welcome Back</h1>
+
+    <p>
+        Login to access personalized hybrid movie recommendations.
+    </p>
+
+    <!-- IMPORTANT: autocomplete disabled -->
+    <form method="POST" autocomplete="off">
+
+        <input
+            type="text"
+            name="username"
+            class="search-box"
+            placeholder="Username"
+            required
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+        >
+
+        <br><br>
+
+        <input
+            type="password"
+            name="password"
+            class="search-box"
+            placeholder="Password"
+            required
+            autocomplete="new-password"
+        >
+
+        <br><br>
+
+        <button type="submit" class="search-btn">
+            Login
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/signup" class="home-btn">
+        Create Account
+    </a>
+
+    <br><br>
+
+    <a href="/forgot_password" class="home-btn">
+        Forgot Password?
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -8,48 +8,121 @@
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">MovieAI</div>
+
+    <div class="logo">
+        MovieAI
+    </div>
+
+    <div>
+
+        <a href="/history" class="home-btn">
+            🎬 History
+        </a>
+
+        <a href="/logout" class="home-btn">
+            🚪 Logout
+        </a>
+
+    </div>
+
 </div>
 
+<!-- HERO -->
 <div class="hero">
 
-    <h1>Unlimited Movies, Endless Discovery</h1>
+    <h1>
+        Unlimited Movies, Endless Discovery
+    </h1>
 
-    <p>Search movies OR try genre search like: horror, animation, action</p>
+    <p>
+        Search movies OR try genre search like:
+        horror, animation, action
+    </p>
 
     <form action="/search" method="POST">
 
-        <input type="text" name="movie" class="search-box"
-               placeholder="Toy Story OR horror, anime">
+        <input
+            type="text"
+            name="movie"
+            class="search-box"
+            placeholder="Toy Story OR horror, anime"
+            required
+        >
 
-        <button type="submit" class="search-btn">Search</button>
+        <button
+            type="submit"
+            class="search-btn"
+        >
+            Search
+        </button>
 
     </form>
 
 </div>
 
+<!-- FEATURES -->
 <div class="features">
 
     <div class="feature-card">
+
         <div class="emoji">🎬</div>
-        <h3>Movie Discovery</h3>
-        <p>Search thousands of movies instantly.</p>
+
+        <h3>
+            Movie Discovery
+        </h3>
+
+        <p>
+            Search thousands of movies instantly.
+        </p>
+
     </div>
 
     <div class="feature-card">
+
         <div class="emoji">⭐</div>
-        <h3>Smart Recommendations</h3>
-        <p>AI + Genre based suggestions.</p>
+
+        <h3>
+            Hybrid Recommendations
+        </h3>
+
+        <p>
+            Content Based + Collaborative Filtering.
+        </p>
+
     </div>
 
     <div class="feature-card">
+
+        <div class="emoji">📚</div>
+
+        <h3>
+            Watch History
+        </h3>
+
+        <p>
+            Track movies you have searched.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
         <div class="emoji">🌍</div>
-        <h3>Global Cinema</h3>
-        <p>Explore worldwide movies.</p>
+
+        <h3>
+            Global Cinema
+        </h3>
+
+        <p>
+            Explore movies from around the world.
+        </p>
+
     </div>
 
 </div>
 
 </body>
 </html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Watch History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">MovieAI</div>
+</div>
+
+<div class="top-bar">
+    <a href="/" class="home-btn">⬅ Back Home</a>
+</div>
+
+<div class="recommendations">
+
+    <h2>🎬 Your Watch History</h2>
+
+    <div class="movie-grid">
+
+        {% for movie in movies %}
+
+        <div class="movie-card">
+
+            <div style="padding:20px;">
+                <h3>{{ movie.movie_title }}</h3>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
