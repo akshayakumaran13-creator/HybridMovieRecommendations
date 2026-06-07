@@ -173,4 +173,4 @@ def movie_page(movie_id):
 
 # ---------------- RUN ----------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=7860)
+    app.run(host="0.0.0.0", port=7860)  # use 1000 for render app deployment
