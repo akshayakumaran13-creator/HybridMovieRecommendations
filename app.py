@@ -9,7 +9,7 @@ import pandas as pd
 from models import db, User, WatchHistory
 from recommender.hybrid import hybrid_recommend
 
-# ---------------- CONFIG ----------------
+# ---------------- CONFIG --------------
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "movieai-secret"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
