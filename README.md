@@ -58,6 +58,8 @@ To build a scalable and intelligent movie recommendation system that mimics real
 <img width="1912" height="892" alt="image" src="https://github.com/user-attachments/assets/54c1b6d4-df54-42c7-91e1-31ea2bab6c29" />
 <img width="1891" height="914" alt="image" src="https://github.com/user-attachments/assets/46006c00-650c-47c4-9502-43b74df229f1" />
 <img width="1895" height="870" alt="image" src="https://github.com/user-attachments/assets/9f01806e-3ba7-4346-b4e8-ae74e78170aa" />
+<img width="1892" height="878" alt="image" src="https://github.com/user-attachments/assets/daae6c77-b17e-43e2-87f6-a10a19cf9d7b" />
+
 
 
 
