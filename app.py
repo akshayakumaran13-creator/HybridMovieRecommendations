@@ -153,7 +153,7 @@ def history():
     movies = WatchHistory.query.filter_by(user_id=current_user.id).order_by(WatchHistory.id.desc()).all()
     return render_template("history.html", movies=movies, user=current_user.username)
 
-# ------------------------
+# --------------------------
 # MOVIE PAGE (CLICK NAVIGATION)
 # ----------------------------
 @app.route("/movie/<int:movie_id>")
